@@ -6,10 +6,15 @@ import javax.persistence.*;
 public class Message {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    private Integer id;
+    private Long id;
 
     private String text;
     private  String tag;
+    private String companyName;
+    private String companyPlace;
+    private  String typeOrder;
+    private  String companyDate;
+    private String companyTime;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")
@@ -20,10 +25,20 @@ public class Message {
     public Message() {
     }
 
-    public Message(String text, String tag, User user) {
+    public Message(String text,
+                   String tag,
+                   User user,
+                   String companyName,
+                   String companyPlace,
+                   String companyDate,
+                   String companyTime) {
         this.author = user;
         this.text = text;
         this.tag = tag;
+        this.companyName = companyName;
+        this.companyPlace = companyPlace;
+        this.companyDate = companyDate;
+        this.companyTime = companyTime;
     }
 
     public String getAuthorName() {
@@ -46,11 +61,11 @@ public class Message {
         return text;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -68,5 +83,36 @@ public class Message {
 
     public void setFilename(String filename) {
         this.filename = filename;
+    }
+
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
+    }
+    public String getCompanyPlace() {
+        return companyPlace;
+    }
+
+    public void setCompanyPlace(String companyPlace) {
+        this.companyPlace = companyPlace;
+    }
+
+    public String getCompanyDate() {
+        return companyDate;
+    }
+
+    public void setCompanyDate(String companyDate) {
+        this.companyDate = companyDate;
+    }
+
+    public String getCompanyTime() {
+        return companyTime;
+    }
+
+    public void setCompanyTime(String companyTime) {
+        this.companyTime = companyTime;
     }
 }

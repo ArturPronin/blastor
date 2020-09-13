@@ -48,10 +48,17 @@ public class MainController {
     public String add(
             @AuthenticationPrincipal User user,
             @RequestParam String text,
-            @RequestParam String tag, Map<String, Object> model,
+            @RequestParam String tag,
+            @RequestParam String companyName,
+            @RequestParam String companyPlace,
+            @RequestParam String  companyDate,
+            @RequestParam String  companyTime,
+            Map<String, Object> model,
             @RequestParam("file") MultipartFile file
             ) throws IOException {
-        Message message = new Message(text, tag, user);
+        Message message = new Message(text, tag, user, companyName,
+                companyPlace, companyDate,
+                companyTime);
 
         if (file != null && !file.getOriginalFilename().isEmpty()) {
             File uploadDir = new File(uploadPath);
@@ -76,5 +83,6 @@ public class MainController {
 
         return "main";
     }
+
 
 }

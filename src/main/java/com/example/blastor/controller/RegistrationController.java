@@ -24,7 +24,7 @@ public class RegistrationController {
     public String addUser(User user, Map<String, Object> model) {
 
         if (!userService.addUser(user)) {
-            model.put("message", "User exsist!");
+            model.put("message", "Пользователь зарегистрирован!");
             return "registration";
         }
 

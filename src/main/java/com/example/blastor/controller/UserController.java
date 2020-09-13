@@ -3,7 +3,6 @@ package com.example.blastor.controller;
 import com.example.blastor.domain.Role;
 import com.example.blastor.domain.User;
 import com.example.blastor.repos.UserRepo;
-import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
